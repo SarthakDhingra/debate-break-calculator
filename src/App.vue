@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BreakForm/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BreakForm from './components/BreakForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BreakForm
   }
 }
 </script>
