@@ -1,25 +1,32 @@
 <template>
+  <br>
+  <Header/>
+  <br>
+  <br>
   <BreakForm/>
 </template>
 
 <script>
 import BreakForm from './components/BreakForm.vue'
+import Header from './components/Header.vue'
+
 
 export default {
   name: 'App',
   components: {
-    BreakForm
+    BreakForm,
+    Header
   }
 }
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>
