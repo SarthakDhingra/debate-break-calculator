@@ -1,7 +1,7 @@
 <template>
     <div class="has-text-centered">
-        <h1 class="title is-1">{{title}}</h1>
-        <h5 class="subtitle is-5">{{description}}</h5>
+        <h1 class="title is-1" style="color:white">{{title}}</h1>
+        <h5 class="subtitle is-5" style="color:white">{{description}}</h5>
     </div>
 </template>
 
@@ -17,3 +17,10 @@ export default {
     }
 }
 </script>
+
+<style>
+
+h1 {
+    color:white
+}
+</style>

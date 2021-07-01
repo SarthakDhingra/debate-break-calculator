@@ -2,27 +2,25 @@
     <div class="columns has-text-centered" >
         <div class="column"></div>
         <div class="column">
-            <div class="card">
-                <div class="card-content">
-                    <div class="content">
-                        <form class="pure-form pure-form-stacked splash-subhead" @submit.prevent="onSubmit($event)">
-                            <label class="label" for="teams">TEAMS</label>
-                            <input class="input" id="teams" v-model.number="teams">
-                            <br>
-                            <label class="label" for="rounds">ROUNDS</label>
-                            <input class="input" id="rounds" v-model.number="rounds">
-                            <br>
-                            <label class="label" for="breaking">BREAKING</label> 
-                            <input class="input" id="breaking" v-model.number="breaking">
-                            <br>
-                            <br>
-                            <button class="button" name="style" value=2 type="submit">Two Teams</button>
-                            <button class="button" name="style" value=4 type="submit">Four Teams</button> 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+            <form class="pure-form pure-form-stacked splash-subhead" @submit.prevent="onSubmit($event)">
+                <label class="label" for="teams" style="color:white">TEAMS</label>
+                <input class="input" id="teams" v-model.number="teams">
+                <br>
+                <br>
+                <label class="label" for="rounds" style="color:white">ROUNDS</label>
+                <input class="input" id="rounds" v-model.number="rounds">
+                <br>
+                <br>
+                <label class="label" for="breaking" style="color:white">BREAKING</label> 
+                <input class="input" id="breaking" v-model.number="breaking">
+                <br>
+                <br>
+                <button class="button" name="style" value=2 type="submit">Two Teams</button>
+                <button class="button" name="style" value=4 type="submit">Four Teams</button> 
+            </form>
+
+        </div> 
         <div class="column"></div>
     </div>
 
@@ -71,3 +69,9 @@ export default {
     }
 }
 </script>
+
+<style>
+    p {
+        color:white
+    }
+</style>
