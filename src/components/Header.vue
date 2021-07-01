@@ -1,7 +1,9 @@
 <template>
-    <div class="has-text-centered">
-        <h1 class="title is-1">{{title}}</h1>
-        <h5 class="subtitle is-5">{{description}}</h5>
+    <div class="pure-g" style="justify-content:center;text-align: center;">
+        <div class="pure-u">
+            <h1 >{{title}}</h1>
+            <h5 >{{description}}</h5>
+        </div>
     </div>
 </template>
 

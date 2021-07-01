@@ -1,39 +1,44 @@
 <template>
-    <div class="columns has-text-centered" >
-        <div class="column"></div>
-        <div class="column">
-            <div class="card">
-                <div class="card-content">
-                    <div class="content">
-                        <form class="pure-form pure-form-stacked splash-subhead" @submit.prevent="onSubmit($event)">
-                            <label class="label" for="teams">TEAMS</label>
-                            <input class="input" id="teams" v-model.number="teams">
-                            <br>
-                            <label class="label" for="rounds">ROUNDS</label>
-                            <input class="input" id="rounds" v-model.number="rounds">
-                            <br>
-                            <label class="label" for="breaking">BREAKING</label> 
-                            <input class="input" id="breaking" v-model.number="breaking">
-                            <br>
-                            <br>
-                            <button class="button" name="style" value=2 type="submit">Two Teams</button>
-                            <button class="button" name="style" value=4 type="submit">Four Teams</button> 
-                        </form>
-                    </div>
-                </div>
+    
+    <div class="pure-g" style="justify-content:center;text-align: center;">
+        <div class="pure-u">
+            <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit($event)">
+                <fieldset>
+                    <label for="teams">TEAMS</label>
+                    <input id="teams" v-model.number="teams">
+                    <br>
+                    <label for="rounds">ROUNDS</label>
+                    <input id="rounds" v-model.number="rounds">
+                    <br>
+                    <label for="breaking">BREAKING</label> 
+                    <input id="breaking" v-model.number="breaking">
+                    <br>
+                    <br>
+                    <button name="style" value=2 type="submit">Two Teams</button>
+                    <button name="style" value=4 type="submit">Four Teams</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    
+
+
+    <div v-if="displayResults" style="justify-content:center;text-align: center;">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p>Best Case</p>
+            </div>
+            <div class="pure-u-1-2">
+                <p>Worst Case</p>
             </div>
         </div>
-        <div class="column"></div>
-    </div>
-
-    <div v-if="displayResults">
-        <div class="columns is-mobile has-text-centered">
-            <p class="column">Best Case</p>
-            <p class="column">Worst Case</p>
-        </div>
-        <div class="columns is-mobile has-text-centered">
-            <p class="column">{{best_string}}</p>
-            <p class="column">{{worst_string}}</p>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p>{{best_string}}</p>
+            </div>
+            <div class="pure-u-1-2">
+                <p>{{worst_string}}</p>
+            </div>
         </div>
     </div>
 </template>
