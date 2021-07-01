@@ -5,17 +5,17 @@
             <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit($event)">
                 <fieldset>
                     <label for="teams">TEAMS</label>
-                    <input id="teams" v-model.number="teams">
+                    <input style="width:250px" id="teams" v-model.number="teams"/>
                     <br>
                     <label for="rounds">ROUNDS</label>
-                    <input id="rounds" v-model.number="rounds">
+                    <input style="width:250px" id="rounds" v-model.number="rounds">
                     <br>
                     <label for="breaking">BREAKING</label> 
-                    <input id="breaking" v-model.number="breaking">
+                    <input style="width:250px" id="breaking" v-model.number="breaking">
                     <br>
                     <br>
-                    <button name="style" value=2 type="submit">Two Teams</button>
-                    <button name="style" value=4 type="submit">Four Teams</button>
+                    <button class="pure-button" name="style" value=2 type="submit">Two Teams</button>
+                    <button class="pure-button" name="style" value=4 type="submit">Four Teams</button>
                 </fieldset>
             </form>
         </div>
@@ -76,3 +76,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>
