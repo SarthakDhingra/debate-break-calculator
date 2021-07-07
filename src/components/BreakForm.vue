@@ -4,15 +4,14 @@
         <div class="pure-u">
             <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit($event)">
                 <fieldset>
-                    <label for="teams">TEAMS</label>
-                    <input style="width:250px" id="teams" v-model.number="teams"/>
+                    <label for="teams">teams</label>
+                    <input id="teams" v-model.number="teams"/>
                     <br>
                     <label for="rounds">ROUNDS</label>
-                    <input style="width:250px" id="rounds" v-model.number="rounds">
+                    <input id="rounds" v-model.number="rounds">
                     <br>
                     <label for="breaking">BREAKING</label> 
-                    <input style="width:250px" id="breaking" v-model.number="breaking">
-                    <br>
+                    <input id="breaking" v-model.number="breaking">
                     <br>
                     <button class="pure-button" name="style" value=2 type="submit">Two Teams</button>
                     <button class="pure-button" name="style" value=4 type="submit">Four Teams</button>
@@ -20,24 +19,27 @@
             </form>
         </div>
     </div>
+
+    <br>
+    <br>
     
-
-
     <div v-if="displayResults" style="justify-content:center;text-align: center;">
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <p>Best Case</p>
+                <h3>Best Case</h3>
             </div>
             <div class="pure-u-1-2">
-                <p>Worst Case</p>
+                <h3>Worst Case</h3>
             </div>
         </div>
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <p>{{best_string}}</p>
+                <h4>{{best_guranteed}}</h4>
+                <h4>{{best_speaks}}</h4>
             </div>
             <div class="pure-u-1-2">
-                <p>{{worst_string}}</p>
+                <h4>{{worst_guranteed}}</h4>
+                <h4>{{worst_speaks}}</h4>
             </div>
         </div>
     </div>
@@ -55,12 +57,15 @@ export default {
             rounds: 5,
             breaking: 8,
             displayResults: false,
-            best_string: 'best',
-            worst_string: 'worst'
+            best_guranteed: '',
+            best_speaks:'',
+            worst_guranteed: '',
+            worst_speaks:''
         }
     },
     methods: {
         onSubmit(event) {
+            console.log('inside')
 
             let style = parseInt(event.submitter.attributes.value.value)
             let tournament = new Tournament(style)
@@ -69,8 +74,10 @@ export default {
             let best = results[0]
             let worst = results[1]
 
-            this.best_string = `All teams on ${best.guranteed_break} points will break. ${best.breaking_on_speaks} out of ${best.total_on_speaks} teams on ${best.speaks_break} points will break`
-            this.worst_string = `All teams on ${worst.guranteed_break} points will break. ${worst.breaking_on_speaks} out of ${worst.total_on_speaks} teams on ${worst.speaks_break} points will break`
+            this.best_guranteed = `all teams on ${best.guranteed_break} points will break`
+            this.best_speaks = `${best.breaking_on_speaks} out of ${best.total_on_speaks} teams on ${best.speaks_break} points will break`
+            this.worst_guranteed = `all teams on ${worst.guranteed_break} points will break`
+            this.worst_speaks =  `${worst.breaking_on_speaks} out of ${worst.total_on_speaks} teams on ${worst.speaks_break} points will break`
             this.displayResults = true
         }
     }
@@ -78,5 +85,37 @@ export default {
 </script>
 
 <style>
+label {
+    color:white;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.pure-button {
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+input {
+    font-weight: 400;
+    width:100%
+}
+
+h3 {
+    color:white;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h4 {
+    color:white;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
 
 </style>

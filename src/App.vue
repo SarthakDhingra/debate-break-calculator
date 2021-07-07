@@ -30,6 +30,6 @@ export default {
   margin-top: 60px;
 } */
 html {
-  background:#1f8dd6
+  background:#2d3e50
 }
 </style>
