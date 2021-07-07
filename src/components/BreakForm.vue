@@ -1,39 +1,46 @@
 <template>
-    <div class="columns has-text-centered" >
-        <div class="column"></div>
-        <div class="column">
-            <div class="card">
-                <div class="card-content">
-                    <div class="content">
-                        <form class="pure-form pure-form-stacked splash-subhead" @submit.prevent="onSubmit($event)">
-                            <label class="label" for="teams">TEAMS</label>
-                            <input class="input" id="teams" v-model.number="teams">
-                            <br>
-                            <label class="label" for="rounds">ROUNDS</label>
-                            <input class="input" id="rounds" v-model.number="rounds">
-                            <br>
-                            <label class="label" for="breaking">BREAKING</label> 
-                            <input class="input" id="breaking" v-model.number="breaking">
-                            <br>
-                            <br>
-                            <button class="button" name="style" value=2 type="submit">Two Teams</button>
-                            <button class="button" name="style" value=4 type="submit">Four Teams</button> 
-                        </form>
-                    </div>
-                </div>
-            </div>
+    
+    <div class="pure-g" style="justify-content:center;text-align: center;">
+        <div class="pure-u">
+            <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit($event)">
+                <fieldset>
+                    <label for="teams">teams</label>
+                    <input id="teams" v-model.number="teams"/>
+                    <br>
+                    <label for="rounds">ROUNDS</label>
+                    <input id="rounds" v-model.number="rounds">
+                    <br>
+                    <label for="breaking">BREAKING</label> 
+                    <input id="breaking" v-model.number="breaking">
+                    <br>
+                    <button class="pure-button" name="style" value=2 type="submit">Two Teams</button>
+                    <button class="pure-button" name="style" value=4 type="submit">Four Teams</button>
+                </fieldset>
+            </form>
         </div>
-        <div class="column"></div>
     </div>
 
-    <div v-if="displayResults">
-        <div class="columns is-mobile has-text-centered">
-            <p class="column">Best Case</p>
-            <p class="column">Worst Case</p>
+    <br>
+    <br>
+    
+    <div v-if="displayResults" style="justify-content:center;text-align: center;">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <h3>Best Case</h3>
+            </div>
+            <div class="pure-u-1-2">
+                <h3>Worst Case</h3>
+            </div>
         </div>
-        <div class="columns is-mobile has-text-centered">
-            <p class="column">{{best_string}}</p>
-            <p class="column">{{worst_string}}</p>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <h4>{{best_guranteed}}</h4>
+                <h4>{{best_speaks}}</h4>
+            </div>
+            <div class="pure-u-1-2">
+                <h4>{{worst_guranteed}}</h4>
+                <h4>{{worst_speaks}}</h4>
+            </div>
         </div>
     </div>
 </template>
@@ -50,12 +57,15 @@ export default {
             rounds: 5,
             breaking: 8,
             displayResults: false,
-            best_string: 'best',
-            worst_string: 'worst'
+            best_guranteed: '',
+            best_speaks:'',
+            worst_guranteed: '',
+            worst_speaks:''
         }
     },
     methods: {
         onSubmit(event) {
+            console.log('inside')
 
             let style = parseInt(event.submitter.attributes.value.value)
             let tournament = new Tournament(style)
@@ -64,10 +74,49 @@ export default {
             let best = results[0]
             let worst = results[1]
 
-            this.best_string = `All teams on ${best.guranteed_break} points will break. ${best.breaking_on_speaks} out of ${best.total_on_speaks} teams on ${best.speaks_break} points will break`
-            this.worst_string = `All teams on ${worst.guranteed_break} points will break. ${worst.breaking_on_speaks} out of ${worst.total_on_speaks} teams on ${worst.speaks_break} points will break`
+            this.best_guranteed = `all teams on ${best.guranteed_break} points will break`
+            this.best_speaks = `${best.breaking_on_speaks} out of ${best.total_on_speaks} teams on ${best.speaks_break} points will break`
+            this.worst_guranteed = `all teams on ${worst.guranteed_break} points will break`
+            this.worst_speaks =  `${worst.breaking_on_speaks} out of ${worst.total_on_speaks} teams on ${worst.speaks_break} points will break`
             this.displayResults = true
         }
     }
 }
 </script>
+
+<style>
+label {
+    color:white;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.pure-button {
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color:#2d3e50
+}
+
+input {
+    font-weight: 400;
+    width:100%
+}
+
+h3 {
+    color:white;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+h4 {
+    color:white;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+</style>
