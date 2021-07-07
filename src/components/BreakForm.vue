@@ -97,6 +97,7 @@ label {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color:#2d3e50
 }
 
 input {
