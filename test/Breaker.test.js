@@ -117,4 +117,26 @@ describe('Historical Tournaments', function() {
         checkAnswer(style, test, answer)
     });
 
+    it('usuiv_2017', function() {
+        let test = {"teams":45,"breaking":8,"rounds":5}
+        let answer = {"guranteed_break":11, "speaks_break":10, "breaking_on_speaks":2}
+        let style = 4
+        checkAnswer(style, test, answer)
+    });
+
+    it('northams_2020', function() {
+        let test = {"teams":55,"breaking":16,"rounds":6}
+        let answer = {"guranteed_break":5, "speaks_break":4, "breaking_on_speaks":11}
+        let style = 2
+        checkAnswer(style, test, answer)
+    });
+
+    it('yaleiv_2019', function() {
+        let test = {"teams":178,"breaking":16,"rounds":6}
+        let answer = {"guranteed_break":14, "speaks_break":13, "breaking_on_speaks":6}
+        let style = 4
+        checkAnswer(style, test, answer)
+    });
+
+
 });

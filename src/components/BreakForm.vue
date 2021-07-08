@@ -58,9 +58,9 @@ export default {
     name: "BreakForm",
     data() {
         return {
-            teams: 40,
-            rounds: 5,
-            breaking: 8,
+            teams: null,
+            rounds: null,
+            breaking: null,
             displayResults: false,
             best_guranteed: '',
             best_speaks:'',
