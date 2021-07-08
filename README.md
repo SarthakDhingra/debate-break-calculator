@@ -7,7 +7,7 @@
 
 ## Notes
 - Style is the number of teams that are in one debate. For example British Parliamentary is 'Four Teams' while Canadian Parliamentary and Australs are 'Two Teams'
-- The calculator assumes the tournament is using a bracketing system for each rounds draw. An explanation of the bracketing system can be found in the first paragraph of the following pdf: https://osdu.org/wp-content/uploads/2018/10/Bracketing_Scoring_System.pdf
+- The calculator assumes the tournament is using a bracketing system for each rounds draw. An explanation of the bracketing system can be found in the first paragraph of the following pdf: https://www.qsda.org/juniors/Juniors_Bracketing_System.pdf
 - Things like team conflicts that alter the tournament draw may cause errors
 
 ## Project setup
