@@ -14,8 +14,8 @@
                     <input type="number" id="breaking" v-model.number="breaking">
                     <br>
                     <label for="breaking">TEAMS PER ROUND</label> 
-                    <button class="pure-button" name="style" value=2 type="submit" title="e.g. Australs">Two</button>
-                    <button class="pure-button" name="style" value=4 type="submit" title="e.g. British Parliamentary">Four</button>
+                    <button class="pure-button" name="style" value=2 type="submit" title="e.g. Australs">&nbsp;&nbsp;&nbsp;&nbsp;Two&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button class="pure-button" name="style" value=4 type="submit" title="e.g. British Parliamentary">&nbsp;&nbsp;&nbsp;&nbsp;Four&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </fieldset>
             </form>
         </div>
@@ -47,7 +47,6 @@
 
     <div v-if="error" style="justify-content:center;text-align: center;">
         <h3 style="color:red">Number of Breaking teams must be divisible by teams per round</h3>
-    
     </div>
 </template>
 
