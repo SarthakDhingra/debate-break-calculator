@@ -2,7 +2,7 @@
     
     <div class="pure-g" style="justify-content:center;text-align: center;">
         <div class="pure-u">
-            <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit($event)">
+            <form class="pure-form pure-form-stacked" @submit.prevent="onSubmit">
                 <fieldset>
                     <label for="teams">teams</label>
                     <input type="number" id="teams" v-model.number="teams"/>
@@ -14,8 +14,8 @@
                     <input type="number" id="breaking" v-model.number="breaking">
                     <br>
                     <label for="breaking">TEAMS PER ROUND</label> 
-                    <button class="pure-button" name="style" value=2 type="submit" title="e.g. Australs">&nbsp;&nbsp;&nbsp;&nbsp;Two&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                    <button class="pure-button" name="style" value=4 type="submit" title="e.g. British Parliamentary">&nbsp;&nbsp;&nbsp;&nbsp;Four&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button class="pure-button" name="style" @click="style=2" type="submit" title="e.g. Australs">&nbsp;&nbsp;&nbsp;&nbsp;Two&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button class="pure-button" name="style" @click="style=4" type="submit" title="e.g. British Parliamentary">&nbsp;&nbsp;&nbsp;&nbsp;Four&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </fieldset>
             </form>
         </div>
@@ -62,6 +62,7 @@ export default {
             rounds: null,
             breaking: null,
             displayResults: false,
+            style: null,
             best_guranteed: '',
             best_speaks:'',
             worst_guranteed: '',
@@ -70,21 +71,20 @@ export default {
         }
     },
     methods: {
-        onSubmit(event) {
+        onSubmit() {
 
             this.displayResults = true
             this.error = false
-            let style = parseInt(event.submitter.attributes.value.value)
 
             // error validation
-            if (this.breaking % style) {
+            if (this.breaking % this.style) {
                 this.displayResults = false
                 this.error = true
                 return
             }
 
             // get results
-            let tournament = new Tournament(style)
+            let tournament = new Tournament(this.style)
             let results = tournament.getBreak(this.teams, this.breaking, this.rounds)
             let best = results[0]
             let worst = results[1]
