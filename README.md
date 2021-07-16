@@ -8,7 +8,7 @@
 ## Notes
 - The calculator assumes the tournament is using a bracketing system for each rounds draw. An explanation of the bracketing system can be found in the first paragraph of the following pdf: https://www.qsda.org/juniors/Juniors_Bracketing_System.pdf
 - Things like team conflicts that alter the tournament draw may cause errors
-- For a list of tournaments that the calculator has been tested on see ```test/Breaker.tests.js```. ```it.skip``` implies the calculator was incorrect for that tournament.
+- For a list of tournaments that the calculator has been tested on see ```test/Breaker.test.js```. ```it.skip``` implies the calculator was incorrect for that tournament.
 
 ## Project setup
 ```
